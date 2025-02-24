@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"  # JupyterLab port
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks  # Mount notebooks directory
+      - ./data:/home/jovyan/work/data            # Mount data directory
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"  # Enable JupyterLab interface
